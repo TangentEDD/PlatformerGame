@@ -11,7 +11,7 @@ state_dim = 4
 action_dim = 3
 qnet = QNet(state_dim, action_dim)
 target_qnet = QNet(state_dim, action_dim)
-target_qnet.load_state_dict(torch.load("D:\code\game\qnet1.pth"))
+target_qnet.load_state_dict(torch.load("qnet.pth"))
 
 def demo_episode(env, qnet, max_steps=200):
     state = env.reset()
@@ -89,3 +89,4 @@ for episode in range(7000):
     print(f"Episode {episode}, total reward: {total_reward}")
 
 torch.save(qnet.state_dict(), "qnet2.pth")
+
